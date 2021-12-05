@@ -5,8 +5,8 @@ const cors= require('cors');
 
 app.use(cors({origin:'*'}));
 
-const server= app.listen(4002,()=>{
-    console.log("listening to port 4002");
+const server= app.listen(process.env.PORT,()=>{
+    // console.log("listening to port 4002");
 });
 
 app.use(express.json());
