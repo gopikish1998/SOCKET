@@ -16,7 +16,7 @@ const allUsers = asyncHandler(async (req, res) => {
   res.send(users);
 });
 const registerUser = asyncHandler(async (req,res) => {
-    const { name, email, password} = req.body;
+  const { name, email, password, pic } = req.body;
     if (!name || !email || !password) {
         res.status(400);
         throw new Error('Please enter all fields')
@@ -27,7 +27,7 @@ const registerUser = asyncHandler(async (req,res) => {
         throw new Error('User already exists');
     }
     const user = await User.create({
-        name,email,password
+        name,email,password,pic
     })
     if (user) {
         res.status(201).json({
